@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Walk option 2 placeholder</title>
+  <desc id="desc">Placeholder image for a future walk photo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#120d1f"/>
+      <stop offset="100%" stop-color="#d14f85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <path d="M0 735C194 632 341 605 509 654s240 70 382 21 219-55 309-25V900H0Z" fill="#ffd1e6" fill-opacity=".13"/>
+  <rect x="95" y="95" width="1010" height="710" rx="42" fill="none" stroke="#ffe6f2" stroke-opacity=".45" stroke-width="4" stroke-dasharray="18 16"/>
+  <text x="600" y="395" fill="#fff2f8" font-family="Georgia, serif" font-size="72" font-style="italic" text-anchor="middle">Photo Placeholder 2</text>
+  <text x="600" y="490" fill="#ffd7ea" font-family="Georgia, serif" font-size="38" font-style="italic" text-anchor="middle">Replace with your own walking photo</text>
+</svg>

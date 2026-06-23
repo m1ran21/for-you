@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A cute bilingual invitation micro-site." />
+  <title>Wanna hang out? ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="particles" aria-hidden="true"></div>
+  <div id="fancyCursor" class="fancy-cursor" aria-hidden="true"></div>
+
+  <div id="introOverlay" class="intro-overlay" role="dialog" aria-modal="true" aria-live="polite">
+    <div class="intro-inner">
+      <p id="introSubtitle" class="intro-subtitle"></p>
+      <h1 id="introTitle" class="intro-title"></h1>
+      <div id="introChecklist" class="intro-checklist" aria-live="polite"></div>
+      <button id="introButton" class="btn btn-primary intro-button" type="button"></button>
+    </div>
+  </div>
+
+  <div id="loadingScreen" class="loading-screen" role="status" aria-live="polite">
+    <div class="loader-wrap">
+      <div class="neon-loader" aria-hidden="true">
+        <span class="neon-ring ring-a"></span>
+        <span class="neon-ring ring-b"></span>
+        <span class="neon-core"></span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><span id="loadingProgress"></span></div>
+      <p id="loadingPhrase" class="loading-phrase"></p>
+    </div>
+  </div>
+
+  <header class="top-controls" id="topControls">
+    <nav class="lang-switch" aria-label="Language switcher">
+      <button id="langRu" class="lang-btn" type="button" aria-label="Switch to Russian">RU</button>
+      <button id="langEn" class="lang-btn" type="button" aria-label="Switch to English">EN</button>
+    </nav>
+  </header>
+
+  <main class="page-shell" id="appRoot">
+    <section id="storySection" class="screen active" aria-labelledby="storyTitle">
+      <article class="glass-card letter-card">
+        <h2 id="storyTitle"></h2>
+        <div id="storyText" class="story-text" aria-live="polite"></div>
+        <div class="type-row">
+          <span id="typeCursor" class="cursor" aria-hidden="true">|</span>
+          <div class="story-progress" aria-hidden="true">
+            <span id="storyProgressFill"></span>
+          </div>
+        </div>
+        <button id="continueBtn" class="btn btn-primary" type="button"></button>
+      </article>
+    </section>
+
+    <section id="inviteSection" class="screen" aria-labelledby="inviteQuestion" hidden>
+      <article class="invite-stage">
+        <div class="invite-copy" id="inviteCopy">
+          <h2 id="inviteQuestion" class="invite-question"></h2>
+          <p id="inviteSubtext" class="invite-subtext"></p>
+          <p id="noMessage" class="no-message taunt" aria-live="polite"></p>
+        </div>
+        <div class="invite-actions" id="inviteActions">
+          <button id="yesBtn" class="btn btn-choice" type="button"></button>
+          <button id="noBtn" class="btn btn-choice" type="button"></button>
+        </div>
+      </article>
+    </section>
+
+    <section id="placeSection" class="screen" aria-labelledby="placeTitle" hidden>
+      <article class="glass-card place-card">
+        <h2 id="placeTitle"></h2>
+        <p id="placeSubtitle" class="place-subtitle"></p>
+
+        <div class="carousel" id="placeCarousel">
+          <button id="carouselPrev" class="carousel-arrow carousel-prev" type="button" aria-label="Previous">‹</button>
+
+          <div class="carousel-stage" id="carouselStage" aria-live="polite">
+            <div class="carousel-frame">
+              <img id="carouselImage" class="carousel-image" alt="" decoding="async" />
+              <span class="carousel-counter" id="carouselCounter" aria-hidden="true"></span>
+            </div>
+            <h3 id="carouselTitle" class="carousel-title"></h3>
+            <p id="carouselCaption" class="carousel-caption"></p>
+          </div>
+
+          <button id="carouselNext" class="carousel-arrow carousel-next" type="button" aria-label="Next">›</button>
+        </div>
+
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Choose a place"></div>
+
+        <div class="when-picker" id="whenPicker">
+          <h3 id="whenTitle" class="when-title"></h3>
+          <input type="date" id="dateInput" class="date-input" />
+          <div class="time-chips" id="timeChips" role="group" aria-label="Time of day"></div>
+        </div>
+
+        <button id="confirmPlaceBtn" class="btn btn-primary" type="button"></button>
+      </article>
+    </section>
+
+    <section id="successSection" class="screen" aria-labelledby="successTitle" hidden>
+      <article class="glass-card success-card">
+        <h2 id="successTitle"></h2>
+        <p id="successPlan" class="success-plan"></p>
+        <p id="successText"></p>
+        <p id="successContact" class="success-contact"></p>
+        <button id="restartBtn" class="btn btn-primary" type="button"></button>
+      </article>
+      <div id="successBurst" class="success-burst" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <aside class="music-panel" id="musicPanel" aria-label="Music controls">
+    <p id="musicPanelTitle" class="music-title"></p>
+    <p id="trackName" class="track-name"></p>
+    <div class="music-actions">
+      <button id="prevTrackBtn" class="icon-btn" type="button" aria-label="Previous track">⏮</button>
+      <button id="playPauseBtn" class="icon-btn" type="button" aria-label="Play or pause">⏵</button>
+      <button id="nextTrackBtn" class="icon-btn" type="button" aria-label="Next track">⏭</button>
+    </div>
+    <p id="musicStatus" class="music-status" aria-live="polite"></p>
+  </aside>
+
+  <div id="surpriseCorner" class="surprise-corner" hidden>
+    <div class="surprise-panel" id="surprisePanel" role="dialog" aria-label="Surprise">
+      <p class="surprise-title" id="surpriseTitle"></p>
+      <p class="surprise-sub" id="surpriseSub"></p>
+      <a class="surprise-qr-link" id="surpriseQrLink"
+         href="https://id.yandex.uz/family/invite?invite-id=3b86a7a8-f56d-4552-82e8-4ae33cf48a6c"
+         target="_blank" rel="noopener noreferrer">
+        <img class="surprise-qr" src="./assets/images/yandex-qr.png" alt="QR code for the Yandex Music family invite" decoding="async" />
+      </a>
+      <a class="surprise-link" id="surpriseLink"
+         href="https://id.yandex.uz/family/invite?invite-id=3b86a7a8-f56d-4552-82e8-4ae33cf48a6c"
+         target="_blank" rel="noopener noreferrer"></a>
+    </div>
+    <button class="surprise-tab" id="surpriseTab" type="button">
+      <span class="surprise-gift" aria-hidden="true">🎁</span>
+      <span class="surprise-tab-label" id="surpriseTabLabel"></span>
+    </button>
+  </div>
+
+  <audio id="bgMusic" preload="none"></audio>
+
+  <script src="./content.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
