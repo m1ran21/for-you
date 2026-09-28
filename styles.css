@@ -119,35 +119,18 @@ html.cursor-enabled body *::after {
   pointer-events: auto;
 }
 
-/* floating soft hearts / blobs */
+/* floating romantic hearts */
 .particle {
   position: absolute;
-  width: 28px;
-  height: 28px;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), rgba(255, 150, 200, 0.75) 55%, rgba(255, 111, 174, 0.55) 100%);
-  border-radius: 50% 50% 46% 46%;
-  box-shadow: 0 8px 18px rgba(255, 150, 200, 0.28);
-  opacity: 0.7;
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle at 32% 26%, #ffe1ee 0%, #ff8fbb 50%, #ff4f95 100%);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.78;
   animation: floatUp linear infinite;
   pointer-events: auto;
   transform-origin: center;
-}
-
-.particle::before,
-.particle::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: inherit;
-}
-
-.particle::before {
-  transform: translateX(-46%) scale(0.78);
-}
-
-.particle::after {
-  transform: translateY(-46%) scale(0.78);
 }
 
 .particle.pop {
@@ -197,16 +180,24 @@ html.cursor-enabled body *::after {
 
 @keyframes floatUp {
   0% {
-    transform: translateY(16vh) scale(0.72) rotate(0deg);
+    transform: translate(0, 14vh) rotate(-8deg) scale(0.68);
     opacity: 0;
   }
 
-  18% {
-    opacity: 0.55;
+  12% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate(24px, -52vh) rotate(6deg) scale(1);
+  }
+
+  88% {
+    opacity: 0.8;
   }
 
   100% {
-    transform: translateY(-124vh) scale(1.05) rotate(20deg);
+    transform: translate(-16px, -122vh) rotate(-5deg) scale(1.08);
     opacity: 0;
   }
 }
